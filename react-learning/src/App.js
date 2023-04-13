@@ -1,24 +1,24 @@
 
 import './App.css';
+import { Planet } from "./Planet";
 
 function App() {
-  return (
-    <div className="App">
-      <User salary={100} position="ceo" company="google"/>
-    </div>
-  );
-}
 
-//组件component
+  const planets = [
+    { name: "Mars", isGasPlanet: false },
+    { name: "Earth", isGasPlanet: false },
+    { name: "Jupiter", isGasPlanet: true },
+    { name: "Venus", isGasPlanet: false },
+    { name: "Neptune", isGasPlanet: true },
+    { name: "Uranus", isGasPlanet: true }
+  ]
 
-const User = (job)=>{
+
   return(
-    <div>
-      <h1>{job.salary}</h1>
-      <h1>{job.position}</h1>
-      <h1>{job.company}</h1>
-    </div>
-  );
+    planets.map((planet,key)=>{
+      return<Planet isGasPlanet={planet.isGasPlanet} name={planet.name} />
+    })
+  )
 }
 
 export default App;
